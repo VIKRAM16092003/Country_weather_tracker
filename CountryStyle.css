@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 50;
+}
+.title{
+    color: rgb(248, 251, 249);
+    text-align: center;
+    padding: 10px;
+    background-image: url("image/pexels-photo-1819650.jpeg");
+    background-size: cover;
+    font-family: Courier, monospace;
+    }
+.title:hover{
+    cursor: pointer;
+    color:black;
+}
+body {
+    overflow-x: hidden;
+    background-color: white;  
+}
+.victor{
+    background-image: url("image/pexels-benjamin-suter-3617500.jpg");
+    background-size: 100%;
+    padding-top: 20px;
+}
+#name {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
+    border-radius: 5px;
+    border: 3px solid black;
+    padding: 0px 5px;
+    font-size: 1.5rem;
+}
+#result{
+    margin: 10px;
+    margin-left:20px;
+    padding-right: 25px;
+    margin-bottom: 20px;
+    color: rgb(10, 10, 17);
+    padding: 20px;
+    border-radius: 20px;
+    width:170px;
+    padding-left: 25px;
+    border-color: rgb(127, 156, 158);
+    border-style: solid;
+    border-width: 5px;
+    box-shadow: 0.2cm 0.2cm;
+    background-image: url("image/natural-ppt-625.jpg");
+    background-size: cover;
+    font-family: Courier, monospace;
+    font-weight: bolder;
+    }
+#result:hover{
+    color: blue;
+    cursor: pointer;
+}
+svg path {
+    cursor: pointer;
+}
+.vig{
+    padding-bottom: 10px;
+    padding-left: 35%;
+}

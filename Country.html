@@ -1,75 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
     <title>Weather Tracker</title>
-    <link rel="icon" href="{% static 'image\climate-change.png'%}">
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="icon" type="image/x-icon" href="image/climate-change.PNG">
+    <link rel="stylesheet" href="CountryStyle.css">
     <style>
-* {
-    margin: 0;
-    padding: 0;
-}
-.title{
-    color: rgb(248, 251, 249);
-    text-align: center;
-    padding: 10px;
-    background-image: url('{% static "image/pexels-photo-1819650.jpeg"%}');
-    background-size: cover;
-    font-family: Courier, monospace;
-    }
-.title:hover{
-    cursor: pointer;
-    color:black;
-}
-body {
-    overflow-x: hidden;
-    background-color: white;  
-}
-.victor{
-    background-image: url("{% static 'image/pexels-benjamin-suter-3617500.jpg'%}");
-    background-size: 100%;
-    padding-top: 20px;
-}
-#name {
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    width: fit-content;
-    border-radius: 5px;
-    border: 3px solid black;
-    padding: 0px 5px;
-    font-size: 1.5rem;
-}
-#result{
-    margin: 10px;
-    margin-left:20px;
-    padding-right: 25px;
-    margin-bottom: 20px;
-    color: rgb(10, 10, 17);
-    padding: 20px;
-    border-radius: 20px;
-    width:170px;
-    padding-left: 25px;
-    border-color: rgb(127, 156, 158);
-    border-style: solid;
-    border-width: 5px;
-    box-shadow: 0.2cm 0.2cm;
-    background-image: url('{% static "image/natural-ppt-625.jpg"%}');
-    background-size: cover;
-    font-family: Courier, monospace;
-    font-weight: bolder;
-    }
-#result:hover{
-    color: blue;
-    cursor: pointer;
-}
-svg path {
-    cursor: pointer;
-}
-.vig{
-    padding-bottom: 10px;
-    padding-left: 35%;
-}
+
     </style>
 </head>
 <body>
@@ -1611,52 +1547,6 @@ svg path {
     </div>
     </div>
     
-    <script>
-        document.querySelectorAll(".allPaths").forEach(e => {
-            e.setAttribute('class', `allPaths ${e.id}`);
-            e.addEventListener("mouseover", function () {
-                window.onmousemove=function (j) {
-                    x = j.clientX
-                    y = j.clientY
-                    document.getElementById('name').style.top = y+10  + 'px'
-                    document.getElementById('name').style.left = x + 'px'
-                }
-                const classes=e.className.baseVal.replace(/ /g, '.')         
-                document.querySelectorAll(`.${classes}`).forEach(country =>{
-                    country.style.fill = "blue"
-                })
-                document.getElementById("name").style.opacity = 1
-                
-                document.getElementById("namep").innerText = e.id
-            })
-            e.addEventListener("mouseleave", function () {
-                const classes=e.className.baseVal.replace(/ /g, '.')
-                document.querySelectorAll(`.${classes}`).forEach(country =>{
-                    country.style.fill = "#ececec"
-                })
-                document.getElementById("name").style.opacity = 0
-            })
-
-            e.addEventListener("click",function(){
-                getUser(e.id)
-            })
-        })
-        function getUser(countryName) {
-            fetch('/process_path/', {
-                method: 'POST',
-                headers: {
-                    'country':countryName,
-                    'X-CSRFToken': '{{ csrf_token }}' 
-                },
-                body: JSON.stringify({country: countryName})
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('result').innerText = data.result;
-                document.getElementById('result').style.fontWeight = "bold";    
-            })
-            .catch(error => console.error('Error:', error));
-        }  
-    </script>
+    <script src="Country.js"></script>
 </body>
 </html>
